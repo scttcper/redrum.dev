@@ -6,7 +6,7 @@ import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import { expressiveCodeOptions } from './src/site.config';
 import { siteConfig } from './src/site.config';
 
@@ -25,7 +25,7 @@ import rehypeUnwrapImages from 'rehype-unwrap-images';
 export default defineConfig({
   site: siteConfig.url,
   image: {
-    domains: ['webmention.io'],
+    domains: [],
   },
   integrations: [
     expressiveCode(expressiveCodeOptions),
@@ -101,21 +101,21 @@ export default defineConfig({
   },
   env: {
     schema: {
-      WEBMENTION_API_KEY: envField.string({
-        context: 'server',
-        access: 'secret',
-        optional: true,
-      }),
-      WEBMENTION_URL: envField.string({
-        context: 'client',
-        access: 'public',
-        optional: true,
-      }),
-      WEBMENTION_PINGBACK: envField.string({
-        context: 'client',
-        access: 'public',
-        optional: true,
-      }),
+      // WEBMENTION_API_KEY: envField.string({
+      //   context: 'server',
+      //   access: 'secret',
+      //   optional: true,
+      // }),
+      // WEBMENTION_URL: envField.string({
+      //   context: 'client',
+      //   access: 'public',
+      //   optional: true,
+      // }),
+      // WEBMENTION_PINGBACK: envField.string({
+      //   context: 'client',
+      //   access: 'public',
+      //   optional: true,
+      // }),
     },
   },
 });
