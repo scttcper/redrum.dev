@@ -4,6 +4,7 @@ import Note from '@/components/note/Note.astro';
 import { getAllPosts } from '@/data/post';
 import PageLayout from '@/layouts/Base.astro';
 import { collectionDateSort } from '@/utils/date';
+import { Icon } from 'astro-icon/components';
 
 // Posts
 const MAX_POSTS = 10;
@@ -19,44 +20,67 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
-  <section class="space-y-4">
-    {
-      allPostsByDate.map((p) => (
-        <article class="group grid gap-3 sm:grid-cols-[auto_1fr]">
-          <time class="text-accent mt-1 hidden font-mono text-sm whitespace-nowrap sm:block">
-            {p.data.publishDate.toLocaleDateString('en-US', {
-              year: '2-digit',
-              month: '2-digit',
-              day: '2-digit',
-            })}
-          </time>
-          <div class="min-w-0">
-            <h2 class="text-accent mb-1 text-lg font-bold group-hover:underline">
-              <a href={`/posts/${p.id}/`} class="block">
-                {p.data.title}
-              </a>
-            </h2>
-            <time class="text-accent mb-2 block font-mono text-sm sm:hidden">
+  <section>
+    <h2 class="title text-accent mb-6 flex items-center gap-3 text-xl">
+      <a href="/posts/">Posts</a>
+      <a class="text-accent" href="/rss.xml" target="_blank">
+        <span class="sr-only">RSS feed</span>
+        <Icon
+          aria-hidden="true"
+          class="h-6 w-6"
+          focusable="false"
+          name="mdi:rss"
+        />
+      </a>
+    </h2>
+    <div class="space-y-4">
+      {
+        allPostsByDate.map((p) => (
+          <article class="group grid gap-3 sm:grid-cols-[auto_1fr]">
+            <time class="text-accent-2 mt-1 hidden font-mono text-sm whitespace-nowrap sm:block">
               {p.data.publishDate.toLocaleDateString('en-US', {
-                year: '2-digit',
-                month: '2-digit',
+                month: 'short',
                 day: '2-digit',
+                year: 'numeric',
               })}
             </time>
-            <p class="text-global-text text-sm leading-relaxed">
-              {p.data.description}
-            </p>
-          </div>
-        </article>
-      ))
-    }
+            <div class="min-w-0">
+              <h2 class="text-accent mb-1 text-lg font-bold group-hover:underline">
+                <a href={`/posts/${p.id}/`} class="block">
+                  {p.data.title}
+                </a>
+              </h2>
+              <time class="text-accent-2 mb-2 block font-mono text-sm sm:hidden">
+                {p.data.publishDate.toLocaleDateString('en-US', {
+                  year: '2-digit',
+                  month: '2-digit',
+                  day: '2-digit',
+                })}
+              </time>
+              <p class="text-global-text text-sm leading-relaxed">
+                {p.data.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   {
     latestNotes.length > 0 && (
       <section class="mt-16">
-        <h2 class="title text-accent mb-6 text-xl">
+        <h2 class="title text-accent mb-6 flex items-center gap-3 text-xl">
           <a href="/notes/">Notes</a>
+          <a class="text-accent" href="/notes/rss.xml" target="_blank">
+            <span class="sr-only">RSS feed</span>
+            <Icon
+              aria-hidden="true"
+              class="h-6 w-6"
+              focusable="false"
+              name="mdi:rss"
+            />
+          </a>
         </h2>
         <ul class="space-y-6" role="list">
           {latestNotes.map((note) => (
