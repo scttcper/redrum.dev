@@ -15,7 +15,7 @@ It was 3 AM when I first encountered the codebase. A legacy system, they said. "
 
 The first sign something was wrong came when I tried to understand the main application loop. Variables with names like `soul_collector` and `blood_memory` scattered throughout. Comments in what appeared to be Latin. And functions that seemed to call themselves recursively into infinity.
 
-```javascript
+```typescript
 function summon_entity(entity_type, sacrifice_count) {
     if (sacrifice_count > 0) {
         // Hic sunt dracones

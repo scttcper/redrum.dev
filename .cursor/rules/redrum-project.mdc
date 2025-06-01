@@ -1,0 +1,94 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# REDRUM Blog - Project Context & Rules
+
+## Overview
+REDRUM is a dark, horror-themed developer blog built with Astro. The design aesthetic is inspired by "The Shining" with a blood-red color scheme on a nearly black background, creating a menacing but readable developer blog experience.
+
+## Theme & Design Philosophy
+- **Horror aesthetic**: Dark background (#0a0a0a) with vibrant red accents (#dc2626)
+- **Typography**: Monospace font throughout for that "code terminal" feel
+- **Minimalist layout**: Clean, focused on content, no unnecessary elements
+- **Developer-focused**: Content about coding, debugging, version control with horror metaphors
+
+## Technologies Used
+- **Framework**: Astro v5
+- **Styling**: Tailwind CSS v4
+- **Content**: Markdown/MDX with content collections
+- **Search**: Pagefind for static search
+- **Formatting**: Biome for code formatting
+- **Theme**: Custom dark theme with red accents
+
+## Color Scheme (Critical)
+```css
+--color-global-bg: oklch(8% 0 0);        /* Very dark background */
+--color-global-text: oklch(83.54% 0 264); /* Light text */
+--color-accent: oklch(65% 0.25 15);       /* Vibrant red accent */
+```
+- **Primary red**: `#dc2626` or `oklch(65% 0.25 15)`
+- **Background**: Nearly black `#0a0a0a`
+- **Text**: Light gray for readability
+
+## Key Components & Layout
+- **Header**: Large "REDRUM" title (center) + theme toggle (right)
+- **Home page**: Compact article feed with dates on left (desktop) or under title (mobile)
+- **Footer**: Navigation links + search icon
+- **No traditional header navigation** - minimalist approach
+
+## File Structure (Important)
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Footer.astro         # Footer with nav + search
+│   │   └── Header.astro         # (removed - integrated into Base.astro)
+│   ├── ThemeToggle.astro        # Red-themed dark/light toggle
+│   └── Search.astro             # Pagefind search integration
+├── layouts/
+│   ├── Base.astro               # Main layout with REDRUM header
+│   └── BlogPost.astro           # Individual post layout
+├── pages/
+│   └── index.astro              # Home page with compact article feed
+├── styles/
+│   └── global.css               # Custom CSS variables and components
+└── content/
+    └── post/                    # Blog posts in markdown
+```
+
+## Styling Conventions
+- **Red elements**: Use `text-accent` class or `#dc2626` color
+- **Hover effects**: Red glow `box-shadow: 0 0 8px rgba(239, 68, 68, 0.3)`
+- **Custom classes**:
+  - `.redrum-title`: Large red title styling
+  - `.redrum-subtitle`: Subtitle styling
+  - `.redrum-divider`: Red horizontal divider
+- **Responsive**: Mobile-first with `sm:` breakpoints
+
+## Content Strategy
+- **Horror-themed developer content**: Technical posts with dark humor/horror metaphors
+- **Example posts**: "The Night Code Bled", "Git Blame & Other Rituals"
+- **Tags**: horror, legacy-code, debugging, git, version-control, rituals
+
+## Key Features
+- **Responsive design**: Mobile-first with compact article feeds
+- **Theme switching**: Dark (default) and light modes
+- **Search functionality**: Integrated in footer
+- **Scroll restoration**: Maintains position when navigating back
+- **Pagefind search**: Static site search with red-themed UI
+
+## Design Patterns
+1. **Dark by default**: Theme provider defaults to dark mode
+2. **Red accents everywhere**: Links, headings, dates, buttons
+3. **Compact layouts**: Especially on mobile
+4. **Monospace typography**: Consistent throughout
+5. **Horror iconography**: Custom SVG icon with red "R"
+
+## When Making Changes
+- **Always maintain red color consistency**: Use existing color variables
+- **Test mobile responsiveness**: Especially article feed layouts
+- **Keep horror theme**: Dark, minimalist, slightly menacing
+- **Preserve accessibility**: High contrast, proper ARIA labels
+- **Use existing CSS classes**: Don't create duplicate styles
