@@ -36,8 +36,8 @@
       --color-global-bg: oklch(8% 0 0); /* Very dark background */
       --color-global-text: oklch(83.54% 0 264); /* Light text */
       --color-link: oklch(65% 0.25 15); /* More vibrant red links */
-      --color-accent: oklch(65% 0.25 15); /* More vibrant red accent */
-      --color-accent-2: oklch(65% 0.25 15); /* More vibrant red accent 2 */
+      --color-accent: oklch(55% 0.22 29); /* More vibrant red accent */
+      --color-accent-2: oklch(55% 0.22 29); /* More vibrant red accent 2 */
       --color-quote: oklch(65% 0.25 15); /* More vibrant red quotes */
     }
   }
