@@ -2,12 +2,31 @@
 import PageLayout from '@/layouts/Base.astro';
 
 const meta = {
-  description: 'Oops! It looks like this page is lost in space!',
-  title: 'Oops! You found a missing page!',
+  description: 'This room is currently occupied... by something else.',
+  title: 'Room Not Found | REDRUM',
 };
 ---
 
 <PageLayout meta={meta}>
-  <h1 class="title mb-6">404 | Oops something went wrong</h1>
-  <p class="mb-8">Please use the navigation to find your way back</p>
+  <div class="hotel-paper rounded-lg p-8">
+    <h1 class="title typewriter mb-6">Room 404 | Not Available</h1>
+
+    <div class="mb-8 space-y-4 text-lg">
+      <p class="ominous-link">
+        <strong>The Manager</strong> is not available at this time.
+      </p>
+
+      <p class="text-gray-400">
+        This room appears to be... <span class="text-accent">occupied</span>.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <p class="text-accent font-semibold">
+        Please return to <a href="/" class="hotel-nav-link underline"
+          >The Lobby</a
+        >
+      </p>
+    </div>
+  </div>
 </PageLayout>
